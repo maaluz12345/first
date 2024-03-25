@@ -1,6 +1,17 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<!-- Inside your template (post_list.html) -->
+<div class="text-end">
+    <form method="get" action="{% url 'post_list' %}">
+        <select name="sort_by">
+            <option value="date">Sort by Date</option>
+            <option value="title">Sort by Title</option>
+        </select>
+        <button type="submit">Sort</button>
+    </form>
+</div>
+
     {% for post in posts %}
         <article class="post">
             <time class="date">
